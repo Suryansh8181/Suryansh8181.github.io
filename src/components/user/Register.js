@@ -27,7 +27,7 @@ function Register() {
 
         e.preventDefault();
         //api post to server
-        axios.post('http://foodobackend.herokuapp.com/signup', user)
+        axios.post('https://foodobackend.herokuapp.com/signup', user)
             .then(res => {
                 //console.log(res.data.flag)
                 if(res.data.flag==false){
