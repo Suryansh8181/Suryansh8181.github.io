@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import NavigationBar from '../InitialNavBar';
 import Signimg from './Sign_img'
 function Register() {
-    const [user, setUser] = useState({ userID: "", name: "", email: "", password: "", Phone: "", Address: "", Role: "" })
+    const [user, setUser] = useState({ name: "", email: "", password: "", phone: "", address: "", role: "" })
     const [msg, setMsg] = useState('');
     const history = useNavigate();
     useEffect(() => {
@@ -27,11 +27,19 @@ function Register() {
 
         e.preventDefault();
         //api post to server
-        axios.post('https://my-json-yumito-server.herokuapp.com/users', user)
+        axios.post('http://foodobackend.herokuapp.com/signup', user)
             .then(res => {
+                //console.log(res.data.flag)
+                if(res.data.flag==false){
+
+                    alert("User ALready Exist Kindly Login")
+                }
+                else{
                 setMsg("Registered Successfully");
-                console.log(user);
+                alert("user registered")
+                //console.log(res.data);
                 history("/login")
+            }
                 //redirect to login page
             })
             .catch((e) => {
@@ -50,26 +58,23 @@ function Register() {
                             <div className="d-flex flex-column g-2">
                                 <div className="form-group">
                                     <div className="form-group">
-                                        <div className="form-group">
-                                            <label htmlFor="userID" className="form-label m-2 h5">UserID</label>
-                                            <input type="text" name="userID" placeholder="userID" className="form-control-lg" value={user.userID} onChange={changeMe} required /></div>
                                         <label htmlFor="name" className="form-label m-2 h5">Name</label>
                                         <input type="name" name="name" placeholder="Name" className="form-control-lg" value={user.name} onChange={changeMe} required /></div>
                                     <div className="form-group">
                                         <label htmlFor="email" className="form-label m-2 h5">Email</label>
-                                        <input type="email" name="mail" placeholder="Email" className="form-control-lg" value={user.mail} onChange={changeMe} required /></div>
+                                        <input type="email" name="email" placeholder="Email" className="form-control-lg" value={user.email} onChange={changeMe} required /></div>
                                     <div className="form-group">
                                         <label htmlFor="password" className="form-label m-2 h5">Password</label>
                                         <input type="password" name="password" placeholder="Password" className="form-control-lg" value={user.password} onChange={changeMe} required /></div>
                                     <div className="form-group">
-                                        <label htmlFor="Phone" className="form-label m-2 h5">Phone</label>
-                                        <input type="number" name="Phone" placeholder="Phone" className="form-control-lg" value={user.Phone} onChange={changeMe} required /></div>
+                                        <label htmlFor="phone" className="form-label m-2 h5">Phone</label>
+                                        <input type="number" name="phone" placeholder="Phone" className="form-control-lg" value={user.phone} onChange={changeMe} required /></div>
                                     <div className="form-group">
-                                    <label htmlFor="Address" className="form-label m-2 h5">Address</label>
-                                    <textarea type="text" name="Address" placeholder="Address" className="form-control-lg" value={user.Address} onChange={changeMe} required /></div></div>
+                                    <label htmlFor="address" className="form-label m-2 h5">Address</label>
+                                    <textarea type="text" name="address" placeholder="Address" className="form-control-lg" value={user.address} onChange={changeMe} required /></div></div>
                                 <div className="form-group">
-                                    <label htmlFor="Role" className="form-label m-2 h5">Role</label>
-                                    <input type="text" name="Role" placeholder="Role" className="form-control-lg" value={user.Role} onChange={changeMe} required /></div>
+                                    <label htmlFor="role" className="form-label m-2 h5">Role</label>
+                                    <input type="text" name="role" placeholder="Role" className="form-control-lg" value={user.role} onChange={changeMe} required /></div>
                                     </div>
                                 <button className="btn btn-primary my-3 h4">Sign Up</button>
                                 <div className="h5 text-center" style={msg === '' ? {} : (msg.includes("Success") ? success : fail)}>{msg}</div>

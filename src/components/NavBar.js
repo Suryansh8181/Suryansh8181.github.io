@@ -9,7 +9,7 @@ function NavigationBar() {
     const token1 = localStorage.getItem("token");
     //const USERDATA=JSON.parse(token1)
     //console.log('http://foodobackend.herokuapp.com/home-customer/'+token1.replace(/['"]+/g, ''));
-    axios.get('http://foodobackend.herokuapp.com/home-customer/'+token1.replace(/['"]+/g, ''))
+    axios.get('https://foodobackend.herokuapp.com/home-customer/'+token1.replace(/['"]+/g, ''))
     .then(res=>{
         localStorage.setItem('uname',res.data.name)
     })

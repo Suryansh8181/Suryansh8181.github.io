@@ -17,11 +17,11 @@ function Chinese(){
     const token1 = localStorage.getItem("token");
     const [ucity,setucity]=React.useState('')
     //console.log('http://foodobackend.herokuapp.com/home-customer/'+token1.replace(/['"]+/g, ''));
-    axios.get('http://foodobackend.herokuapp.com/home-customer/'+token1.replace(/['"]+/g, ''))
+    axios.get('https://foodobackend.herokuapp.com/home-customer/'+token1.replace(/['"]+/g, ''))
     .then(res=>{
         setucity(res.data.address)
     })
-    axios.get("http://foodobackend.herokuapp.com/searchResultsbyCuisine/Chinese")
+    axios.get("https://foodobackend.herokuapp.com/searchResultsbyCuisine/Chinese")
     .then(response=>{
         localStorage.setItem("chinese",JSON.stringify(response.data))
     })
