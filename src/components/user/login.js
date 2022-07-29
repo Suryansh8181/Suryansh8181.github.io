@@ -13,7 +13,7 @@ function Login() {
     const checkCred = (e) => {
         e.preventDefault();
         //api call to fetch users
-        axios.post("http://foodobackend.herokuapp.com/login", userLogin)
+        axios.post("https://foodobackend.herokuapp.com/login", userLogin)
             .then(response => {
                 if(response.data.flag===false){
                     alert("Enter valid Details")
