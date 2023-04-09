@@ -1,4 +1,4 @@
-import React, { Component,useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 //import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
@@ -9,7 +9,6 @@ import Card from 'react-bootstrap/Card';
 import images from "./images";
 import ImageSlider from "./ImageSlider";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 
 
