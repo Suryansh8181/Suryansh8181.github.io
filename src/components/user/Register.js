@@ -30,7 +30,7 @@ function Register() {
         axios.post('https://foodobackend.herokuapp.com/signup', user)
             .then(res => {
                 //console.log(res.data.flag)
-                if(res.data.flag==false){
+                if(res.data.flag === false){
 
                     alert("User ALready Exist Kindly Login")
                 }
