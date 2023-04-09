@@ -3,7 +3,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../css/style.css'
 import React from 'react'
-import axios from "axios";
 const ImageSlider = ({images}) => {
   
   const settings = {
