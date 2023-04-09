@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 //import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
@@ -8,9 +6,6 @@ import Button from 'react-bootstrap/Button';
 import NavigationBar from './NavBar';
 import Card from 'react-bootstrap/Card';
 //import Caraousel from './caraousel';
-import images from "./images";
-import ImageSlider from "./ImageSlider";
-import Restaurants from "./northIndianRestaurants.json";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 function NorthIndian(){
